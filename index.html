@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="refresh" content="5">
+<head>
+    <title>I LOVE YOU</title>
+    <script>
+       onload = function () {
+            var d = document;
+            function feedin (feed, speed) {
+                var filter = 0;
+                feed.style.opacity = 0;
+                feed.style.MozOpacity = 0;
+                var timer = setInterval(function () {
+                    filter ++;
+                    feed.style.opacity = (filter / 10);
+                    feed.style.MozOpacity = (filter / 10);
+                    if (filter == 10) {
+                        clearInterval(timer);
+                    } 
+                },speed);
+            }
+            // I LOVE YOU
+            var str = [
+                [36,37,38,72,107,142,177],
+                [40,75,110,145,180,],
+                [44,43,42,77,112,113,114,149,184,183,182],
+				[46,81,116,151,186,48,83,117,118,153,188],
+				[190,155,120,85,51,87,122,157,192,121],
+				[56,91,126,161,196,],
+				[96,60,59,93,129,165,201,62,63,99,133,167],
+				[66,101,136,171,206,207,208,173,138,103,68],
+            ];
+            for (i=0;i<245;i++) {
+                var box = d.createElement('div');
+                with (d.body.appendChild(box).style) {
+                    if (i % 35 == 0) { clear = 'both'; }
+                    border = 'solid #222 1px';
+                    width = '20px';
+                    height = '20px';
+                    margin = '2px';
+                    float = 'left';
+                }   
+            }
+            var mess = d.getElementsByTagName('div');
+            var i = 0, j = 0;
+            setInterval(function () {
+                feedin(mess[str[i][j]], 25);
+                mess[str[i][j]].style.background = '#F39'
+                j++;
+                if (i == str.length) { clearInterval(timer); }
+                if (j == str[i].length) { i++; j = 0; }
+            }, 50);
+        } 
+    </script>
+</head>
+<body>
+</body>
+</html>
